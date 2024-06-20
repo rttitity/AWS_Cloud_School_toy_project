@@ -12,7 +12,7 @@ jobs:
       - name: Trigger Jenkins Job
         uses: appleboy/jenkins-action@v2
         with:
-          jenkins_url: 'http://http://13.125.238.238:8888/'
+          jenkins_url: 'http://13.125.238.238:8888/'
           user: ${{ secrets.JENKINS_USER }}
           token: ${{ secrets.JENKINS_API_TOKEN }}
           job: 'react-pipeline'
