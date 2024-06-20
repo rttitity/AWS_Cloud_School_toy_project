@@ -2,6 +2,8 @@ name: Trigger Spring Pipeline
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'backend/**'
 jobs:
@@ -9,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Jenkins Job
-        uses: appleboy/jenkins-action@v2
+        uses: appleboy/jenkins-action@v0.0.2
         with:
           jenkins_url: 'http://13.125.238.238:8888'
           user: ${{ secrets.JENKINS_USER }}
