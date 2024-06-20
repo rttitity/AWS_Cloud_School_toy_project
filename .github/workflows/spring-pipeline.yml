@@ -7,14 +7,17 @@ on:
     paths:
       - 'backend/**'
 jobs:
-  trigger:
+  trigger-jenkins:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Trigger Jenkins Job
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Trigger Spring Job
         uses: appleboy/jenkins-action@v0.0.2
         with:
-          jenkins_url: 'http://13.125.238.238:8888/'
+          url: 'http://13.125.238.238:8888/'
           user: ${{ secrets.JENKINS_USER }}
           token: ${{ secrets.JENKINS_API_TOKEN }}
           job: 'spring-pipeline'
-          parameters: '{}'
