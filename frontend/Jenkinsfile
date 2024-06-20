@@ -3,7 +3,7 @@ pipeline {
     environment {
         ECR_REPO_URL = '132464628555.dkr.ecr.ap-northeast-2.amazonaws.com'
         CLUSTER_NAME = 'ecs-cluster'
-        SERVICE_NAME = 'ecs-srv'
+        SERVICE_NAME = 'ecs-front-svc'
     }
     triggers {
         githubPush() // GitHub hook trigger for GITScm polling.
@@ -23,26 +23,23 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // dir("projects/spring-app"){
-                //     sh './gradlew build'
-                //     sh 'docker build -t myjavaapp:latest .'
-                // }
-                dir("java-instance"){
-                    sh './gradlew build'
-                    sh 'docker build -t myjavaapp:1 .'
+                dir("frontend"){
+                    // sh 'npm install'
+                    // sh 'npm run build'
+                    sh 'docker build -t frontend .'
                 }
             }
         }
         stage('Tag') {
             steps {
-                sh "docker tag myjavaapp:1 ${env.ECR_REPO_URL}/myjavaapp:1"
+                sh "docker tag frontend ${env.ECR_REPO_URL}/frontend"
             }
         }
         stage('Push') {
             steps {
                 withAWS(credentials: 'aws-credentials', region: 'ap-northeast-2') {
                     sh "aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ${env.ECR_REPO_URL}"
-                    sh "docker push ${env.ECR_REPO_URL}/myjavaapp:1"
+                    sh "docker push ${env.ECR_REPO_URL}/frontend"
                 }
             }
         }
