@@ -1,4 +1,4 @@
-name: Trigger Jenkins Pipeline
+name: Trigger React Pipeline
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Trigger Jenkins Job
+      - name: Trigger React Job
         uses: appleboy/jenkins-action@v0.0.2
         with:
           url: 'http://13.125.238.238:8888/'
