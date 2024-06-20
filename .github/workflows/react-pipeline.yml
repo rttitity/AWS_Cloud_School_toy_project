@@ -1,0 +1,19 @@
+name: Trigger React Pipeline
+
+on:
+  push:
+    paths:
+      - 'frontend/**'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins Job
+        uses: appleboy/jenkins-action@v2
+        with:
+          jenkins_url: 'http://http://13.125.238.238:8888/'
+          user: ${{ secrets.JENKINS_USER }}
+          token: ${{ secrets.JENKINS_API_TOKEN }}
+          job: 'react-pipeline'
+          parameters: '{}'
