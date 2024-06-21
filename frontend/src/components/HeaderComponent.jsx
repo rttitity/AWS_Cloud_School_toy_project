@@ -13,7 +13,7 @@ export default class HeaderComponent extends Component {
           <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <div>
               <a href="http://www.zinucha0099.shop" className="navbar-brand">
-                songminseok - jenkins
+                songminseok - jenkins - 시연
               </a>
             </div>
           </nav>
