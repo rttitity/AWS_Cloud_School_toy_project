@@ -17,7 +17,7 @@ jobs:
       - name: Trigger Spring Job
         uses: appleboy/jenkins-action@v0.0.2
         with:
-          url: 'http://13.125.238.238:8888/'
+          url: ${{ secrets.JENKINS_URL }}
           user: ${{ secrets.JENKINS_USER }}
           token: ${{ secrets.JENKINS_API_TOKEN }}
           job: 'spring-pipeline'
