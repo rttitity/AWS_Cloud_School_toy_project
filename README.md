@@ -2,14 +2,11 @@
 AWS Cloud School 토이 플젝 06.17 ~ 06.21
 
 ## 주제
-1. CI/CD Automation Deployment with Jenkins
-1. 젠킨스를 활용한 CI/CD 자동화 구축
+1. CI/CD Automation Deployment with Jenkins (젠킨스를 활용한 CI/CD 자동화 구축)
 
-2. Automate log collection with AWS Lambda functions
-2. AWS Lambda 를 활용한 로그 수집 자동화
+2. Automate log collection with AWS Lambda functions (AWS Lambda 를 활용한 로그 수집 자동화)
 
-3. Monitoring System with Grafana
-3. Grafana를 활용한 컴퓨팅 리소스 모니터링
+3. Monitoring System with Grafana (Grafana를 활용한 컴퓨팅 리소스 모니터링)
 
 ## 아키텍처 구성도
 ![토이프로젝트_구성도](https://github.com/user-attachments/assets/61e2c8cd-4f90-43a4-acde-0e1900ee000e)
